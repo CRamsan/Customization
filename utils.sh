@@ -80,7 +80,6 @@ function run_all_scripts {
     echo "Script folder $SCRIPT_FOLDER does not exist"
     return 2
   fi 
-  
   SCRIPT_FOLDER_REGEX="$SCRIPT_FOLDER/*" 
   echo "About to run all scripts found with $SCRIPT_FOLDER_REGEX"
   for SCRIPT in $SCRIPT_FOLDER_REGEX; do
@@ -93,7 +92,7 @@ function run_all_scripts {
       echo "Running script $SCRIPT"
       . $SCRIPT
     else
-      echo "Error with $SCRIPT, does not match criteria for runnable script"
+      echo "Ignoring $SCRIPT"
     fi
   done
 }
@@ -124,14 +123,36 @@ function validate_script {
   return 0;
 }
 
+function create_key {
+  create_registry
+  if [ -z "$1" ]; then
+    echo "Key name was not provided"
+    return -1
+  fi
+
+  if mkdir "$USER_REG/$1"; then
+    echo "Created key for $1"
+    return 0
+  else
+    echo "Key $1 could not be created"
+    return 1
+  fi
+}
+
+function create_registry {
+  mkdir -p $USER_REG
+}
+
 export -f timestamp
 export -f back_up_and_link
 export -f back_up_file
 export -f run_plat_config
 export -f run_all_scripts
+export -f create_key
 
 export CONFIG_FOLDER="configs"
 export PLAT_NAME_LINUX="Linux"
 export PLAT_CONFIG_LINUX="linux"
 export CONFIG_FOLDER_COMMON="common"
 export SCRIPT_EXT=".sh"
+export USER_REG="~/.config/cramsan"

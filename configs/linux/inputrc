@@ -1,0 +1,5 @@
+# Disable beeps from the CLI
+set bell-style none
+
+# Set input mode to vi
+set editing-mode vi
