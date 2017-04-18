@@ -1,5 +1,12 @@
+# Include the system's inputrc
+$include /etc/inputrc
+
+#
+# And now apply customization
+#
+
 # Disable beeps from the CLI
 set bell-style none
 
 # Set input mode to vi
-set editing-mode vi
+# set editing-mode vi
