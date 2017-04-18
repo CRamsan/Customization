@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 . utils.sh # Source the file with helper functions
 
 PLATFORM='unknown'
