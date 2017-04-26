@@ -1,13 +1,13 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
 . utils.sh # Source the file with helper functions
 
-PLATFORM='unknown'
-PLAT=`uname`
-if [ "$PLAT" == 'Linux' ]; then
-  PLATFORM=$PLAT_NAME_LINUX
+L_PLATFORM='unknown'
+L_PLAT=`uname`
+if [ "$L_PLAT" == 'Linux' ]; then
+  L_PLATFORM=$PLAT_NAME_LINUX
 fi
 
-case "$PLATFORM" in
+case "$L_PLATFORM" in
   "$PLAT_NAME_LINUX")
     run_plat_config $PLAT_CONFIG_LINUX
     ;;

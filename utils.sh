@@ -169,4 +169,4 @@ export PLAT_NAME_LINUX="Linux"
 export PLAT_CONFIG_LINUX="linux"
 export CONFIG_FOLDER_COMMON="common"
 export SCRIPT_EXT=".sh"
-export USER_REG=~/.config/cramsan
+export USER_REG="$HOME/.config/cramsan"
