@@ -100,6 +100,9 @@ for sh in /etc/bash/bashrc.d/* ; do
   [[ -r ${sh} ]] && source "${sh}"
 done
 
+# Add color to ls
+alias ls="ls --color=auto"
+
 # Try to keep environment pollution down, EPA loves us.
 unset use_color sh
 
